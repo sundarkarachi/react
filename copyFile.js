@@ -9,6 +9,7 @@ const filesTopCopy = [
     src: "../CONTRIBUTING.md",
     dest: "../docs/contributing.md",
     hideHeader: true,
+    writex: true,
   },
 ];
 
@@ -17,19 +18,6 @@ hide_title: true
 ---
 
 `;
-
-function writeNewFile(src, dest) {
-  const fileContent = fs.readFileSync(src).toString();
-  const data = new Uint8Array(Buffer.from(generatingPageOptions + fileContent));
-
-  fs.writeFile(dest, data, (err) => {
-    if (err) {
-      console.log("Error Found:", err);
-    } else {
-      console.log("Files added");
-    }
-  });
-}
 
 function copyFile(src, dest) {
   fs.copyFile(src, dest, (err) => {
